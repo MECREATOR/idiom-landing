@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy - Idi.om</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: #ffffff;
+            color: #333333;
+            cursor: none;
+            line-height: 1.6;
+        }
+
+        .cursor-dot {
+            position: fixed;
+            width: 20px;
+            height: 20px;
+            background: #4A9EFF;
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 1000;
+            transition: transform 0.1s ease;
+            transform: translate(-50%, -50%);
+        }
+
+        * {
+            cursor: none !important;
+        }
+
+        /* Header Navigation */
+        .header {
+            position: fixed;
+            top: 2rem;
+            left: 2rem;
+            right: 2rem;
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 50px;
+            z-index: 100;
+            padding: 0 2rem;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+
+        .logo {
+            font-size: 1.4rem;
+            font-weight: 500;
+            color: #111827;
+            text-decoration: none;
+            letter-spacing: 0.12em;
+        }
+
+        .nav-menu {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .nav-link {
+            color: #6b7280;
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: 400;
+            padding: 0.75rem 1rem;
+            border-radius: 8px;
+            transition: all 0.2s ease;
+        }
+
+        .nav-link:hover {
+            color: #111827;
+            background: rgba(0, 0, 0, 0.05);
+        }
+
+        .early-access-btn {
+            background: #111827;
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 25px;
+            font-size: 14px;
+            font-weight: 500;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+
+        .early-access-btn:hover {
+            background: #1f2937;
+            transform: translateY(-1px);
+        }
+
+        /* Layout */
+        .container {
+            margin-top: 120px;
+            display: flex;
+            max-width: 1400px;
+            margin-left: auto;
+            margin-right: auto;
+            gap: 2rem;
+            padding: 2rem;
+        }
+
+        /* Left Sidebar Navigation */
+        .sidebar {
+            width: 280px;
+            flex-shrink: 0;
+            position: sticky;
+            top: 140px;
+            height: fit-content;
+        }
+
+        .sidebar-nav {
+            background: #f8fafc;
+            border-radius: 12px;
+            padding: 1.5rem;
+        }
+
+        .sidebar-title {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #111827;
+            margin-bottom: 1rem;
+        }
+
+        .sidebar-nav ul {
+            list-style: none;
+        }
+
+        .sidebar-nav li {
+            margin-bottom: 0.5rem;
+        }
+
+        .sidebar-nav a {
+            color: #6b7280;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 400;
+            padding: 0.5rem 0.75rem;
+            border-radius: 6px;
+            display: block;
+            transition: all 0.2s ease;
+        }
+
+        .sidebar-nav a:hover,
+        .sidebar-nav a.active {
+            color: #111827;
+            background: #e5e7eb;
+        }
+
+        .back-to-top {
+            margin-top: 2rem;
+            padding-top: 1rem;
+            border-top: 1px solid #e5e7eb;
+        }
+
+        .back-to-top a {
+            color: #4A9EFF;
+            text-decoration: none;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        /* Main Content */
+        .main-content {
+            flex: 1;
+            max-width: 800px;
+        }
+
+        .page-title {
+            font-size: clamp(2rem, 4vw, 2.5rem);
+            font-weight: 300;
+            color: #111827;
+            margin-bottom: 0.5rem;
+            letter-spacing: -0.02em;
+        }
+
+        .last-updated {
+            color: #6b7280;
+            font-size: 14px;
+            margin-bottom: 3rem;
+        }
+
+        .content-section {
+            margin-bottom: 3rem;
+        }
+
+        .content-section h2 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #111827;
+            margin-bottom: 1rem;
+            scroll-margin-top: 140px;
+        }
+
+        .content-section h3 {
+            font-size: 1.2rem;
+            font-weight: 500;
+            color: #111827;
+            margin: 1.5rem 0 0.75rem;
+            scroll-margin-top: 140px;
+        }
+
+        .content-section p {
+            color: #4b5563;
+            margin-bottom: 1rem;
+            line-height: 1.7;
+        }
+
+        .content-section ul {
+            color: #4b5563;
+            margin-bottom: 1rem;
+            padding-left: 1.5rem;
+        }
+
+        .content-section li {
+            margin-bottom: 0.5rem;
+        }
+
+        .highlight-box {
+            background: #f0f9ff;
+            border: 1px solid #bae6fd;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .highlight-box p {
+            color: #0c4a6e;
+            margin-bottom: 0;
+        }
+
+        .contact-info {
+            background: #f8fafc;
+            border-radius: 12px;
+            padding: 2rem;
+            margin-top: 3rem;
+        }
+
+        .contact-info h3 {
+            margin-top: 0;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 1024px) {
+            .container {
+                flex-direction: column;
+                margin-top: 100px;
+                padding: 1rem;
+            }
+
+            .sidebar {
+                width: 100%;
+                position: static;
+                order: 2;
+                margin-top: 2rem;
+            }
+
+            .main-content {
+                order: 1;
+            }
+
+            .header {
+                top: 1rem;
+                left: 1rem;
+                right: 1rem;
+                padding: 0 1.5rem;
+                height: 55px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .sidebar-nav {
+                padding: 1rem;
+            }
+
+            .sidebar-nav a {
+                font-size: 13px;
+                padding: 0.4rem 0.6rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="cursor-dot" id="cursorDot"></div>
+    
+    <!-- Header Navigation -->
+    <header class="header">
+        <a href="index.html" class="logo">Idi.om</a>
+        <nav class="nav-menu">
+            <a href="demo.html" class="nav-link">Product</a>
+            <a href="faq.html" class="nav-link">Support</a>
+            <a href="pricing.html" class="nav-link">Pricing</a>
+            <a href="faq.html" class="nav-link">FAQs</a>
+            <a href="contacts.html" class="early-access-btn">Early Access</a>
+        </nav>
+    </header>
+
+    <div class="container">
+        <!-- Left Sidebar Navigation -->
+        <aside class="sidebar">
+            <nav class="sidebar-nav">
+                <h3 class="sidebar-title">On this page</h3>
+                <ul>
+                    <li><a href="#scope-applicability" class="nav-item">Scope and Applicability</a></li>
+                    <li><a href="#information-collection" class="nav-item">What Information Do We Collect?</a></li>
+                    <li><a href="#information-use" class="nav-item">How Do We Use The Information We Collect?</a></li>
+                    <li><a href="#information-sharing" class="nav-item">Do We Share Your Personal Information?</a></li>
+                    <li><a href="#tracking-technologies" class="nav-item">How Do We Use Tracking Technologies?</a></li>
+                    <li><a href="#information-security" class="nav-item">How Do We Secure Your Personal Information?</a></li>
+                    <li><a href="#data-retention" class="nav-item">Data Retention</a></li>
+                    <li><a href="#privacy-management" class="nav-item">Managing Your Privacy</a></li>
+                    <li><a href="#do-not-track" class="nav-item">How We Respond to Do Not Track Signals</a></li>
+                    <li><a href="#children-under-16" class="nav-item">Children Under 16</a></li>
+                    <li><a href="#region-specific" class="nav-item">Region-Specific Disclosures</a></li>
+                    <li><a href="#contact-us" class="nav-item">Contact Us</a></li>
+                </ul>
+                <div class="back-to-top">
+                    <a href="#top">⟵ Back to top</a>
+                </div>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <h1 class="page-title" id="top">Privacy Policy</h1>
+            <p class="last-updated">Effective Date: 16 September 2025 | Last Updated: 16 September 2025</p>
+
+            <div class="highlight-box">
+                <p><strong>Our Core Promise:</strong> We will never sell your personal data or use it for advertising. Our business model is built entirely on subscription services, ensuring our incentives align with protecting your privacy and providing better care for your loved ones.</p>
+            </div>
+
+            <div class="content-section">
+                <p>At Idiom ("we," "our," "us"), we understand that trust is fundamental when it comes to monitoring the daily lives of those you care about most. This Privacy Policy explains how we collect, use, protect, and share information when you use our 24/7 wearable monitoring device and associated care network services (the "Services").</p>
+                
+                <p>Please read this policy carefully. By using our Services, you agree to the practices described in this policy. If you do not agree, please discontinue use of our Services immediately.</p>
+            </div>
+
+            <div class="content-section" id="scope-applicability">
+                <h2>Scope and Applicability</h2>
+                <p>Our Services enable continuous monitoring to support better care for elderly parents, individuals with neurodivergent needs, or anyone requiring additional care support. The device captures conversations and environmental sounds to generate insights that help care networks make informed decisions about their loved one's wellbeing.</p>
+                
+                <p>This Privacy Policy also does not apply to any third-party applications or services that are used in connection with our Services, or any other products, services or accounts provided by other entities under their own terms of service and privacy policy (collectively, "Third-Party Services").</p>
+            </div>
+
+            <div class="content-section" id="information-collection">
+                <h2>What Information Do We Collect?</h2>
+                
+                <h3>Information You Provide Directly</h3>
+                <ul>
+                    <li><strong>Account Information:</strong> Name, email address, phone number, billing information, date of birth, and emergency contact details when creating accounts or making purchases.</li>
+                    <li><strong>Care Network Setup:</strong> Information about family members, caregivers, healthcare providers, or other trusted individuals you connect to your care network, including contact information and relationship details, specific types of insights each member is authorised to receive, emergency contact hierarchies, and healthcare provider credentials (where applicable).</li>
+                    <li><strong>Device Configuration:</strong> Your preferences for recording settings, privacy controls, care network permissions, emergency triggers, and notification preferences.</li>
+                    <li><strong>Payment Information:</strong> Credit card details, banking information, and billing addresses collected and processed by our payment providers. We store only card type, last four digits, and expiration date.</li>
+                    <li><strong>Communications:</strong> Information provided when contacting support, including message contents, attachments, and support ticket history.</li>
+                    <li><strong>Healthcare Information:</strong> With explicit consent, information about medical conditions, medications, treatment plans, and healthcare providers to enhance care insights.</li>
+                </ul>
+
+                <h3>Information Collected by the Device</h3>
+                <ul>
+                    <li><strong>Continuous Audio Recordings:</strong> 24/7 audio capture of conversations, environmental sounds, and verbal interactions whilst the device is active. Raw audio is processed immediately for transcription and insight generation, then permanently deleted within 24 hours unless you specifically choose to retain recordings.</li>
+                    <li><strong>Transcriptions:</strong> Text versions of audio recordings generated through automated speech recognition technology, including speaker identification where possible.</li>
+                    <li><strong>Conversation Metadata:</strong> Information about conversation participants, duration, location context, emotional tone indicators, and timing patterns.</li>
+                    <li><strong>Environmental Data:</strong> Background noise levels, activity indicators, and general environmental context to enhance care insights.</li>
+                    <li><strong>Device Performance Data:</strong> Battery levels, connectivity status, charging patterns, button interactions, and technical performance metrics.</li>
+                </ul>
+            </div>
+
+            <div class="content-section" id="information-use">
+                <h2>How Do We Use The Information We Collect?</h2>
+                
+                <h3>Primary Care Services</h3>
+                <p><strong>Continuous Monitoring & Insights:</strong></p>
+                <ul>
+                    <li>Convert audio to meaningful care insights and daily summaries</li>
+                    <li>Identify patterns in mood, activity levels, social interactions, and health mentions</li>
+                    <li>Generate alerts for concerning patterns, emergency situations, or specific trigger words</li>
+                    <li>Create comprehensive daily, weekly, and monthly care reports</li>
+                    <li>Track medication mentions and healthcare appointment discussions</li>
+                </ul>
+
+                <p><strong>Care Network Coordination:</strong></p>
+                <ul>
+                    <li>Share authorised insights with designated care network members according to your explicit permissions</li>
+                    <li>Facilitate communication between care team members</li>
+                    <li>Provide emergency notifications and alerts</li>
+                    <li>Enable coordinated care planning and decision-making</li>
+                </ul>
+
+                <p><strong>Emergency Response:</strong></p>
+                <ul>
+                    <li>Detect potential emergencies through conversation analysis and environmental monitoring</li>
+                    <li>Provide immediate alerts to designated emergency contacts</li>
+                    <li>Share relevant information with emergency services when authorised</li>
+                    <li>Maintain emergency contact systems and protocols</li>
+                </ul>
+            </div>
+
+            <div class="content-section" id="information-sharing">
+                <h2>Do We Share Your Personal Information?</h2>
+                
+                <h3>Your Care Network</h3>
+                <p>Information sharing within your care network is strictly controlled by your explicit permissions:</p>
+                <ul>
+                    <li><strong>Authorised Recipients Only:</strong> Only individuals you specifically designate receive care insights</li>
+                    <li><strong>Granular Controls:</strong> You determine exactly what information each care network member can access</li>
+                    <li><strong>Customisable Access Levels:</strong> From basic daily summaries to detailed health pattern analysis</li>
+                    <li><strong>No Raw Audio Access:</strong> Care network members never receive raw audio recordings unless you explicitly share specific transcript excerpts</li>
+                    <li><strong>Revocable Access:</strong> You can modify or revoke any care network member's access instantly</li>
+                </ul>
+
+                <h3>Healthcare Integration</h3>
+                <p>With your explicit written consent, we may share relevant information with:</p>
+                <ul>
+                    <li>Your designated healthcare providers and medical professionals</li>
+                    <li>Electronic health record systems you authorise</li>
+                    <li>Medical monitoring platforms and telehealth services</li>
+                    <li>Emergency medical services in crisis situations</li>
+                    <li>Insurance providers for authorised claims processing</li>
+                </ul>
+            </div>
+
+            <div class="content-section" id="tracking-technologies">
+                <h2>How Do We Use Tracking Technologies?</h2>
+                
+                <h3>Website & Application Tracking</h3>
+                <ul>
+                    <li><strong>Essential Cookies:</strong> Required for basic Service functionality - cannot be disabled whilst using Services</li>
+                    <li><strong>Analytics Cookies:</strong> Collect information about Service usage to improve functionality and user experience</li>
+                    <li><strong>Preference Cookies:</strong> Remember your settings and provide personalised experience</li>
+                    <li><strong>Marketing Cookies:</strong> Track engagement with our marketing materials (can be disabled)</li>
+                </ul>
+
+                <h3>Device & Mobile Tracking</h3>
+                <ul>
+                    <li><strong>Location Tracking:</strong> Precise location data collected only with explicit permission and used for emergency response coordination, conversation context enhancement, and care pattern analysis</li>
+                    <li><strong>Usage Analytics:</strong> Anonymous usage data to improve device performance and features</li>
+                    <li><strong>Health Data Integration:</strong> Connection with health apps and devices only with explicit permission</li>
+                </ul>
+            </div>
+
+            <div class="content-section" id="information-security">
+                <h2>How Do We Secure Your Personal Information?</h2>
+                
+                <h3>Current Security Measures</h3>
+                <p><strong>Encryption & Access Controls:</strong></p>
+                <ul>
+                    <li>End-to-end AES-256 encryption for all audio data from device to cloud</li>
+                    <li>Zero-knowledge architecture preventing unauthorised access to personal conversations</li>
+                    <li>Multi-factor authentication for all accounts</li>
+                    <li>Role-based access controls limiting staff access to necessary data only</li>
+                </ul>
+
+                <p><strong>Infrastructure Security:</strong></p>
+                <ul>
+                    <li>Secure data centres in Australia and Asia-Pacific region</li>
+                    <li>Regular security audits and vulnerability assessments</li>
+                    <li>24/7 security monitoring and incident response</li>
+                    <li>Secure backup and disaster recovery systems</li>
+                </ul>
+
+                <p><strong>Device Security:</strong></p>
+                <ul>
+                    <li>Tamper-resistant hardware design</li>
+                    <li>Encrypted local storage for temporary data</li>
+                    <li>Automatic security updates</li>
+                    <li>Remote device management for lost or stolen devices</li>
+                </ul>
+            </div>
+
+            <div class="content-section" id="data-retention">
+                <h2>Data Retention</h2>
+                
+                <h3>Retention Periods</h3>
+                <ul>
+                    <li><strong>Raw Audio Data:</strong> Permanently deleted within 24 hours of processing (unless you specifically choose to retain for personal review)</li>
+                    <li><strong>Transcripts & Insights:</strong> Retained according to your settings with options including 1 day to 7 years for personal review, permanent retention with explicit consent, or automatic deletion schedules you control</li>
+                    <li><strong>Account & Billing Data:</strong> Retained whilst account is active plus 7 years for tax and legal requirements</li>
+                    <li><strong>Emergency Records:</strong> Retained for 5 years for potential investigation or medical reference</li>
+                    <li><strong>Backups:</strong> Securely deleted from all backup systems within 90 days of deletion request</li>
+                </ul>
+
+                <h3>Your Deletion Rights</h3>
+                <p><strong>Granular Control:</strong></p>
+                <ul>
+                    <li>Delete specific conversations, days, or time periods</li>
+                    <li>Remove specific types of insights whilst retaining others</li>
+                    <li>Selective deletion for care network sharing whilst maintaining personal records</li>
+                </ul>
+
+                <p><strong>Complete Deletion:</strong></p>
+                <ul>
+                    <li>Delete all personal data immediately upon request</li>
+                    <li>Permanent account deletion with verification process</li>
+                    <li>Care network impact notifications when you delete shared data</li>
+                </ul>
+            </div>
+
+            <div class="content-section" id="privacy-management">
+                <h2>Managing Your Privacy</h2>
+                
+                <h3>Universal Rights (All Users)</h3>
+                <p><strong>Access & Control:</strong></p>
+                <ul>
+                    <li>Download complete copy of all personal data in portable format</li>
+                    <li>View detailed logs of all data sharing and access</li>
+                    <li>Correct inaccurate information at any time</li>
+                    <li>Export data for transfer to other services</li>
+                </ul>
+
+                <p><strong>Consent Management:</strong></p>
+                <ul>
+                    <li>Withdraw consent for any processing activity</li>
+                    <li>Modify recording schedules and privacy zones</li>
+                    <li>Update care network permissions in real-time</li>
+                    <li>Control emergency sharing settings</li>
+                </ul>
+            </div>
+
+            <div class="content-section" id="do-not-track">
+                <h2>How We Respond to Do Not Track Signals</h2>
+                <p>We respect Do Not Track signals and do not track, plant cookies, or use advertising when a Do Not Track (DNT) browser mechanism is in place. We do not deploy third-party advertising or tracking cookies on our Services.</p>
+            </div>
+
+            <div class="content-section" id="children-under-16">
+                <h2>Children Under 16</h2>
+                
+                <h3>Age Restrictions & Protections</h3>
+                <p><strong>Minimum Age:</strong> Services are intended for individuals 18 years and older. For users under 18:</p>
+                <ul>
+                    <li>Explicit parental/guardian consent required</li>
+                    <li>Enhanced privacy protections apply</li>
+                    <li>Limited data sharing capabilities</li>
+                    <li>Additional security measures for vulnerable minors</li>
+                </ul>
+
+                <p><strong>Neurodivergent Users:</strong> Enhanced consent processes and support for users with cognitive differences, including simplified consent language and processes, caregiver involvement in privacy decisions, regular consent confirmation procedures, and specialised support for privacy management.</p>
+
+                <p><strong>Elderly Users:</strong> Specialised protections for elderly users including family involvement in privacy decisions (with user consent), clear, accessible privacy controls, emergency override procedures for medical situations, and regular privacy preference confirmations.</p>
+            </div>
+
+            <div class="content-section" id="region-specific">
+                <h2>Region-Specific Disclosures</h2>
+                
+                <h3>Australian Users (Privacy Act 1988)</h3>
+                <ul>
+                    <li>Right to complain to Office of the Australian Information Commissioner</li>
+                    <li>Access to dispute resolution processes</li>
+                    <li>Protection under health records legislation</li>
+                    <li>Right to restrict cross-border data transfers</li>
+                </ul>
+
+                <h3>International Data Transfers</h3>
+                <p><strong>Data Residency:</strong> Personal data is primarily stored in secure facilities in Australia to minimise cross-border transfers.</p>
+                <p><strong>Subprocessor Locations:</strong> Some subprocessors may be located outside Australia. We ensure adequate protection through standard contractual clauses approved by relevant authorities, additional contractual and technical safeguards, and regular compliance audits of international partners.</p>
+            </div>
+
+            <div class="content-section contact-info" id="contact-us">
+                <h3>Contact Us</h3>
+                <p>If you have any questions about this Policy, your personal information, or the Services, you can contact us at:</p>
+                <ul>
+                    <li><strong>Email:</strong> privacy@idiom.com</li>
+                    <li><strong>Privacy Officer:</strong> privacy@idiom.com</li>
+                    <li><strong>Postal Address:</strong><br>
+                        Idiom Pty Ltd<br>
+                        [Your Australian Address]<br>
+                        Australia</li>
+                </ul>
+
+                <h3>External Complaint Options</h3>
+                <p><strong>Australia:</strong></p>
+                <ul>
+                    <li>Office of the Australian Information Commissioner (OAIC)</li>
+                    <li>Website: oaic.gov.au</li>
+                    <li>Phone: 1300 363 992</li>
+                </ul>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        const cursorDot = document.getElementById('cursorDot');
+        
+        // Cursor tracking
+        document.addEventListener('mousemove', (e) => {
+            cursorDot.style.left = e.clientX + 'px';
+            cursorDot.style.top = e.clientY + 'px';
+        });
+
+        document.addEventListener('mouseleave', () => {
+            cursorDot.style.opacity = '0';
+        });
+
+        document.addEventListener('mouseenter', () => {
+            cursorDot.style.opacity = '1';
+        });
+
+        // Add hover effects for interactive elements
+        const interactiveElements = document.querySelectorAll('a, button, [role="button"]');
+        
+        interactiveElements.forEach(element => {
+            element.addEventListener('mouseenter', () => {
+                cursorDot.style.transform = 'translate(-50%, -50%) scale(1.5)';
+            });
+            
+            element.addEventListener('mouseleave', () => {
+                cursorDot.style.transform = 'translate(-50%, -50%) scale(1)';
+            });
+        });
+
+        // Active navigation highlighting
+        const navItems = document.querySelectorAll('.nav-item');
+        const sections = document.querySelectorAll('.content-section[id]');
+
+        // Function to update active nav item
+        function updateActiveNav() {
+            let current = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - 200;
+                if (window.scrollY >= sectionTop) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navItems.forEach(item => {
+                item.classList.remove('active');
+                if (item.getAttribute('href') === `#${current}`) {
+                    item.classList.add('active');
+                }
+            });
+        }
+
+        // Listen for scroll events
+        window.addEventListener('scroll', updateActiveNav);
+        
+        // Smooth scroll for navigation links
+        navItems.forEach(item => {
+            item.addEventListener('click', (e) => {
+                e.preventDefault();
+                const targetId = item.getAttribute('href').substring(1);
+                const targetElement = document.getElementById(targetId);
+                
+                if (targetElement) {
+                    const offsetPosition = targetElement.offsetTop - 140;
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Initialize active nav on page load
+        updateActiveNav();
+    </script>
+</body>
+</html>

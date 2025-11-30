@@ -1,0 +1,13 @@
+{
+  "name": "idiom-landing",
+  "version": "1.0.0",
+  "description": "Landing page inspired by Ask Computer, Inc.",
+  "main": "index.html",
+  "scripts": {
+    "dev": "npx http-server . -p 3000 -o",
+    "start": "npx http-server . -p 3000"
+  },
+  "devDependencies": {
+    "http-server": "^14.1.1"
+  }
+}

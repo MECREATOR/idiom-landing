@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For Investors - Idiom Inc.</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: #ffffff;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            cursor: none;
+            color: #333333;
+        }
+
+        .cursor-dot {
+            position: fixed;
+            width: 20px;
+            height: 20px;
+            background: #4A9EFF;
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 1000;
+            transition: transform 0.1s ease;
+            transform: translate(-50%, -50%);
+        }
+
+        *, *::before, *::after {
+            cursor: none !important;
+        }
+
+        *:hover, *:focus, *:active, *:visited {
+            cursor: none !important;
+        }
+
+        input, button, a, [role="button"], [type="submit"], [type="button"] {
+            cursor: none !important;
+        }
+
+        input:hover, button:hover, a:hover, input:focus, button:focus, a:focus {
+            cursor: none !important;
+        }
+
+        body, html, body * {
+            cursor: none !important;
+        }
+
+        /* Force override any inherited cursor styles */
+        .email-link, .email-link:hover, .email-link:focus, .email-link:active {
+            cursor: none !important;
+        }
+
+        .nav-links a, .nav-links a:hover, .nav-links a:focus, .nav-links a:active {
+            cursor: none !important;
+        }
+
+        .container {
+            text-align: center;
+            max-width: 600px;
+            padding: 0 20px;
+        }
+
+        h1 {
+            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', system-ui, sans-serif;
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 400;
+            color: #111827;
+            margin-bottom: 2rem;
+            letter-spacing: -0.02em;
+        }
+
+        .computer {
+            font-style: italic;
+        }
+
+        .description {
+            font-size: 18px;
+            line-height: 1.6;
+            color: #374151;
+            margin: 2rem 0 3rem;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .email-link {
+            font-size: 18px;
+            color: #111827;
+            text-decoration: underline;
+            transition: color 0.2s ease;
+            margin: 2rem 0;
+            display: inline-block;
+        }
+
+        .email-link:hover {
+            color: #0079fe;
+        }
+
+        .nav-links {
+            margin-top: 3rem;
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .nav-links a {
+            color: #9ca3af;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 400;
+            transition: color 0.2s ease;
+        }
+
+        .nav-links a:hover {
+            color: #374151;
+        }
+
+        .tagline {
+            margin-top: 2rem;
+            color: #9ca3af;
+            font-size: 14px;
+            line-height: 1.5;
+            max-width: 350px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 16px;
+            }
+            
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            .description {
+                font-size: 16px;
+            }
+            
+            .email-link {
+                font-size: 16px;
+            }
+            
+            .nav-links {
+                flex-direction: column;
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="cursor-dot" id="cursorDot"></div>
+    
+    <div class="container">
+        <h1>Idiom Inc.</h1>
+        
+        <p class="description">
+            At Idiom Inc., we're exploring, designing and building tools that bridge machines and human, seamlessly. If you're an investor who is an optimist of the future and a believe in the power of beautifully crafted products, let's chat.
+        </p>
+        
+        <a href="mailto:hello@idi.om" class="email-link">hello@idi.om</a>
+        
+        <nav class="nav-links">
+            <a href="index.html">Back to main</a>
+            <a href="manifesto.html">Manifesto</a>
+            <a href="demo.html">Demo</a>
+            <a href="#">Contacts</a>
+        </nav>
+        
+        <p class="tagline">
+            Building bridges between scattered thoughts<br>
+            and connected hearts
+        </p>
+    </div>
+
+    <script>
+        const cursorDot = document.getElementById('cursorDot');
+        
+        document.addEventListener('mousemove', (e) => {
+            cursorDot.style.left = e.clientX + 'px';
+            cursorDot.style.top = e.clientY + 'px';
+        });
+
+        // Hide cursor dot when mouse leaves window
+        document.addEventListener('mouseleave', () => {
+            cursorDot.style.opacity = '0';
+        });
+
+        document.addEventListener('mouseenter', () => {
+            cursorDot.style.opacity = '1';
+        });
+
+        // Add hover effects for interactive elements
+        const interactiveElements = document.querySelectorAll('a');
+        
+        interactiveElements.forEach(element => {
+            element.addEventListener('mouseenter', () => {
+                cursorDot.style.transform = 'translate(-50%, -50%) scale(1.5)';
+            });
+            
+            element.addEventListener('mouseleave', () => {
+                cursorDot.style.transform = 'translate(-50%, -50%) scale(1)';
+            });
+        });
+    </script>
+</body>
+</html>

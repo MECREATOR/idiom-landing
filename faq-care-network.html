@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Care Network - FAQ - Idi.om</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: #ffffff;
+            color: #333333;
+            cursor: none;
+            line-height: 1.6;
+        }
+
+        .cursor-dot {
+            position: fixed;
+            width: 20px;
+            height: 20px;
+            background: #4A9EFF;
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 1000;
+            transition: transform 0.1s ease;
+            transform: translate(-50%, -50%);
+        }
+
+        * {
+            cursor: none !important;
+        }
+
+        /* Header Navigation */
+        .header {
+            position: fixed;
+            top: 2rem;
+            left: 2rem;
+            right: 2rem;
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 50px;
+            z-index: 100;
+            padding: 0 2rem;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+
+        .logo {
+            font-size: 1.4rem;
+            font-weight: 500;
+            color: #111827;
+            text-decoration: none;
+            letter-spacing: 0.12em;
+        }
+
+        .nav-menu {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .nav-link {
+            color: #6b7280;
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: 400;
+            padding: 0.75rem 1rem;
+            border-radius: 8px;
+            transition: all 0.2s ease;
+        }
+
+        .nav-link:hover {
+            color: #111827;
+            background: rgba(0, 0, 0, 0.05);
+        }
+
+        .early-access-btn {
+            background: #111827;
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 25px;
+            font-size: 14px;
+            font-weight: 500;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+
+        .early-access-btn:hover {
+            background: #1f2937;
+            transform: translateY(-1px);
+        }
+
+        /* Main Content */
+        .main-content {
+            margin-top: 120px;
+            padding: 2rem;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .page-title {
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            font-weight: 300;
+            color: #111827;
+            text-align: center;
+            margin-bottom: 1rem;
+            letter-spacing: -0.02em;
+        }
+
+        .page-subtitle {
+            font-size: 1.2rem;
+            color: #6b7280;
+            text-align: center;
+            margin-bottom: 4rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* FAQ Questions */
+        .faq-questions {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background: #ffffff;
+            border: 1px solid #e5e7eb;
+            border-radius: 12px;
+            margin-bottom: 1rem;
+            transition: all 0.2s ease;
+        }
+
+        .faq-item:hover {
+            border-color: #d1d5db;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+        }
+
+        .faq-question {
+            padding: 1.5rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+            transition: all 0.2s ease;
+        }
+
+        .faq-question h3 {
+            font-size: 1.1rem;
+            font-weight: 500;
+            color: #111827;
+            margin: 0;
+            flex: 1;
+            padding-right: 1rem;
+        }
+
+        .faq-toggle {
+            font-size: 1.5rem;
+            color: #6b7280;
+            transition: transform 0.2s ease;
+            line-height: 1;
+            min-width: 24px;
+            text-align: center;
+        }
+
+        .faq-item.active .faq-toggle {
+            transform: rotate(45deg);
+        }
+
+        .faq-answer {
+            padding: 0 2rem;
+            color: #6b7280;
+            line-height: 1.7;
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 500px;
+            padding: 0 2rem 1.5rem;
+        }
+
+        /* Privacy Policy Banner */
+        .privacy-banner {
+            background: #1a1a1a;
+            color: white;
+            padding: 2rem;
+            border-radius: 12px;
+            margin: 4rem auto 2rem;
+            max-width: 800px;
+            text-align: center;
+        }
+
+        .privacy-banner h3 {
+            font-size: 1.3rem;
+            font-weight: 500;
+            margin-bottom: 1rem;
+            line-height: 1.4;
+        }
+
+        .privacy-btn {
+            background: white;
+            color: #1a1a1a;
+            padding: 0.75rem 1.5rem;
+            border-radius: 25px;
+            font-size: 14px;
+            font-weight: 500;
+            text-decoration: none;
+            transition: all 0.2s ease;
+            display: inline-block;
+        }
+
+        .privacy-btn:hover {
+            background: #f8f9fa;
+            transform: translateY(-1px);
+        }
+
+        /* Footer */
+        .footer {
+            background: #f8fafc;
+            padding: 4rem 2rem 2rem;
+            border-top: 1px solid #e5e7eb;
+            margin-top: 4rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 2rem;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: #6b7280;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 400;
+            transition: color 0.2s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .footer-links a:hover {
+            color: #111827;
+        }
+
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 3rem auto 0;
+            padding-top: 2rem;
+            border-top: 1px solid #e5e7eb;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 14px;
+            color: #6b7280;
+        }
+
+        .footer-brand {
+            font-weight: 500;
+            color: #111827;
+        }
+
+        .footer-tagline {
+            font-style: italic;
+            color: #9ca3af;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .header {
+                top: 1rem;
+                left: 1rem;
+                right: 1rem;
+                padding: 0 1.5rem;
+                height: 55px;
+            }
+
+            .main-content {
+                margin-top: 100px;
+                padding: 1rem;
+            }
+
+            .faq-question {
+                padding: 1.25rem 1.5rem;
+            }
+
+            .faq-answer {
+                padding: 0 1.5rem 1.25rem;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                gap: 1rem;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="cursor-dot" id="cursorDot"></div>
+    
+    <!-- Header Navigation -->
+    <header class="header">
+        <a href="index.html" class="logo">Idi.om</a>
+        <nav class="nav-menu">
+            <a href="demo.html" class="nav-link">Product</a>
+            <a href="faq.html" class="nav-link">Support</a>
+            <a href="pricing.html" class="nav-link">Pricing</a>
+            <a href="faq.html" class="nav-link">FAQs</a>
+            <a href="contacts.html" class="early-access-btn">Early Access</a>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <h1 class="page-title">Care Network</h1>
+        <p class="page-subtitle">Setting up and managing your family and caregiver connections</p>
+
+        <div class="faq-questions">
+            <div class="faq-item" id="setup-network">
+                <div class="faq-question">
+                    <h3>How do I set up my care network?</h3>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Setting up your care network is simple through the Idiom app. You can invite family members, caregivers, and healthcare providers by email. For each person, you'll specify their relationship to you and what level of insights they should receive - from basic daily summaries to detailed health pattern analysis. You can modify these permissions at any time.</p>
+                </div>
+            </div>
+
+            <div class="faq-item" id="hear-conversations">
+                <div class="faq-question">
+                    <h3>Can my care network members hear my actual conversations?</h3>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>No, care network members never receive raw audio recordings unless you explicitly choose to share specific transcript excerpts. They receive AI-generated insights about your wellbeing, social patterns, and health mentions, but not the actual conversations. You maintain complete control over what information each person receives.</p>
+                </div>
+            </div>
+
+            <div class="faq-item" id="insights">
+                <div class="faq-question">
+                    <h3>What kind of insights do care network members receive?</h3>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Insights vary by permission level but may include daily activity summaries, mood patterns, social interaction levels, mentions of health concerns, medication discussions, and changes in routine. Family members might receive general wellness updates, while healthcare providers could access detailed health pattern analysis relevant to your care.</p>
+                </div>
+            </div>
+
+            <div class="faq-item" id="remove-member">
+                <div class="faq-question">
+                    <h3>Can I remove someone from my care network?</h3>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Yes, you can instantly remove any member from your care network or modify their access permissions at any time. When you remove someone, they immediately lose access to all insights and future updates. You can also choose to delete any historical data they previously had access to.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Privacy Policy Banner -->
+        <div class="privacy-banner">
+            <h3>Have more questions about how Idiom works and our privacy commitments?</h3>
+            <a href="privacy.html" class="privacy-btn">View full privacy policy</a>
+        </div>
+
+        <!-- Return to FAQ Button -->
+        <div class="privacy-banner" style="background: #f8fafc; border: 1px solid #e5e7eb; color: #6b7280; margin-top: 2rem;">
+            <a href="faq.html" class="privacy-btn" style="background: #111827; color: white;">← Return to FAQs page</a>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="#">X ↗</a>
+                <a href="#">LinkedIn ↗</a>
+                <a href="#">Instagram ↗</a>
+                <a href="#">Legal ↗</a>
+                <a href="privacy.html" class="footer-brand">Privacy Policy ↗</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <span>©2025 Idiom</span>
+            <span class="footer-tagline">Rational Optimism</span>
+        </div>
+    </footer>
+
+    <script>
+        const cursorDot = document.getElementById('cursorDot');
+        
+        // Cursor tracking
+        document.addEventListener('mousemove', (e) => {
+            cursorDot.style.left = e.clientX + 'px';
+            cursorDot.style.top = e.clientY + 'px';
+        });
+
+        document.addEventListener('mouseleave', () => {
+            cursorDot.style.opacity = '0';
+        });
+
+        document.addEventListener('mouseenter', () => {
+            cursorDot.style.opacity = '1';
+        });
+
+        // Add hover effects for interactive elements
+        const interactiveElements = document.querySelectorAll('a, button, [role="button"], .faq-question');
+        
+        interactiveElements.forEach(element => {
+            element.addEventListener('mouseenter', () => {
+                cursorDot.style.transform = 'translate(-50%, -50%) scale(1.5)';
+            });
+            
+            element.addEventListener('mouseleave', () => {
+                cursorDot.style.transform = 'translate(-50%, -50%) scale(1)';
+            });
+        });
+
+        // FAQ Accordion functionality
+        const faqItems = document.querySelectorAll('.faq-item');
+        
+        faqItems.forEach(item => {
+            const question = item.querySelector('.faq-question');
+            
+            question.addEventListener('click', () => {
+                const isActive = item.classList.contains('active');
+                
+                // Close all other items
+                faqItems.forEach(otherItem => {
+                    otherItem.classList.remove('active');
+                });
+                
+                // Toggle current item
+                if (!isActive) {
+                    item.classList.add('active');
+                }
+            });
+        });
+
+        // Check for deep link and open specific question
+        window.addEventListener('load', () => {
+            const hash = window.location.hash.substring(1);
+            if (hash) {
+                const targetItem = document.getElementById(hash);
+                if (targetItem) {
+                    targetItem.classList.add('active');
+                    targetItem.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                }
+            }
+        });
+    </script>
+</body>
+</html>

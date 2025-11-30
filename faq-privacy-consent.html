@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy & Consent - FAQ - Idi.om</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: #ffffff;
+            color: #333333;
+            cursor: none;
+            line-height: 1.6;
+        }
+
+        .cursor-dot {
+            position: fixed;
+            width: 20px;
+            height: 20px;
+            background: #4A9EFF;
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 1000;
+            transition: transform 0.1s ease;
+            transform: translate(-50%, -50%);
+        }
+
+        * {
+            cursor: none !important;
+        }
+
+        /* Header Navigation */
+        .header {
+            position: fixed;
+            top: 2rem;
+            left: 2rem;
+            right: 2rem;
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 50px;
+            z-index: 100;
+            padding: 0 2rem;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+
+        .logo {
+            font-size: 1.4rem;
+            font-weight: 500;
+            color: #111827;
+            text-decoration: none;
+            letter-spacing: 0.12em;
+        }
+
+        .nav-menu {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .nav-link {
+            color: #6b7280;
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: 400;
+            padding: 0.75rem 1rem;
+            border-radius: 8px;
+            transition: all 0.2s ease;
+        }
+
+        .nav-link:hover {
+            color: #111827;
+            background: rgba(0, 0, 0, 0.05);
+        }
+
+        .early-access-btn {
+            background: #111827;
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 25px;
+            font-size: 14px;
+            font-weight: 500;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+
+        .early-access-btn:hover {
+            background: #1f2937;
+            transform: translateY(-1px);
+        }
+
+        /* Main Content */
+        .main-content {
+            margin-top: 120px;
+            padding: 2rem;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .page-title {
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            font-weight: 300;
+            color: #111827;
+            text-align: center;
+            margin-bottom: 1rem;
+            letter-spacing: -0.02em;
+        }
+
+        .page-subtitle {
+            font-size: 1.2rem;
+            color: #6b7280;
+            text-align: center;
+            margin-bottom: 4rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* FAQ Questions */
+        .faq-questions {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background: #ffffff;
+            border: 1px solid #e5e7eb;
+            border-radius: 12px;
+            margin-bottom: 1rem;
+            transition: all 0.2s ease;
+        }
+
+        .faq-item:hover {
+            border-color: #d1d5db;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+        }
+
+        .faq-question {
+            padding: 1.5rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+            transition: all 0.2s ease;
+        }
+
+        .faq-question h3 {
+            font-size: 1.1rem;
+            font-weight: 500;
+            color: #111827;
+            margin: 0;
+            flex: 1;
+            padding-right: 1rem;
+        }
+
+        .faq-toggle {
+            font-size: 1.5rem;
+            color: #6b7280;
+            transition: transform 0.2s ease;
+            line-height: 1;
+            min-width: 24px;
+            text-align: center;
+        }
+
+        .faq-item.active .faq-toggle {
+            transform: rotate(45deg);
+        }
+
+        .faq-answer {
+            padding: 0 2rem;
+            color: #6b7280;
+            line-height: 1.7;
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 500px;
+            padding: 0 2rem 1.5rem;
+        }
+
+        /* Return Button */
+        .privacy-banner {
+            background: #1a1a1a;
+            color: white;
+            padding: 2rem;
+            border-radius: 12px;
+            margin: 4rem auto 2rem;
+            max-width: 800px;
+            text-align: center;
+        }
+
+        .privacy-btn {
+            background: white;
+            color: #1a1a1a;
+            padding: 0.75rem 1.5rem;
+            border-radius: 25px;
+            font-size: 14px;
+            font-weight: 500;
+            text-decoration: none;
+            transition: all 0.2s ease;
+            display: inline-block;
+        }
+
+        .privacy-btn:hover {
+            background: #f8f9fa;
+            transform: translateY(-1px);
+        }
+
+        /* Footer */
+        .footer {
+            background: #f8fafc;
+            padding: 4rem 2rem 2rem;
+            border-top: 1px solid #e5e7eb;
+            margin-top: 4rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 2rem;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: #6b7280;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 400;
+            transition: color 0.2s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .footer-links a:hover {
+            color: #111827;
+        }
+
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 3rem auto 0;
+            padding-top: 2rem;
+            border-top: 1px solid #e5e7eb;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 14px;
+            color: #6b7280;
+        }
+
+        .footer-brand {
+            font-weight: 500;
+            color: #111827;
+        }
+
+        .footer-tagline {
+            font-style: italic;
+            color: #9ca3af;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .header {
+                top: 1rem;
+                left: 1rem;
+                right: 1rem;
+                padding: 0 1.5rem;
+                height: 55px;
+            }
+
+            .main-content {
+                margin-top: 100px;
+                padding: 1rem;
+            }
+
+            .faq-question {
+                padding: 1.25rem 1.5rem;
+            }
+
+            .faq-answer {
+                padding: 0 1.5rem 1.25rem;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                gap: 1rem;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="cursor-dot" id="cursorDot"></div>
+    
+    <!-- Header Navigation -->
+    <header class="header">
+        <a href="index.html" class="logo">Idi.om</a>
+        
+        <nav class="nav-menu">
+            <a href="demo.html" class="nav-link">Demo</a>
+            <a href="faq.html" class="nav-link">FAQ</a>
+            <a href="#early-access" class="early-access-btn">Early Access</a>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <h1 class="page-title">Privacy & Consent</h1>
+        <p class="page-subtitle">Understanding consent, privacy controls, and data protection</p>
+
+        <div class="faq-questions">
+            <div class="faq-item" id="surveillance">
+                <div class="faq-question">
+                    <h3>How is this different from surveillance?</h3>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Surveillance implies secretive monitoring without consent. Idiom is built on transparency and explicit consent. You control who sees what information, when they see it, and for how long. Every person in your care network is there because you specifically invited them. You can revoke access instantly, and all insights are designed to support your wellbeing, not monitor your behavior for external purposes.</p>
+                </div>
+            </div>
+
+            <div class="faq-item" id="consent">
+                <div class="faq-question">
+                    <h3>Do I need consent from other people in my conversations?</h3>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>In most jurisdictions, you can record conversations you participate in without additional consent. However, we recommend informing frequent visitors about Idiom as a courtesy. The device can be configured with privacy zones and schedules to respect others' privacy preferences while maintaining your care monitoring needs.</p>
+                </div>
+            </div>
+
+            <div class="faq-item" id="family-control">
+                <div class="faq-question">
+                    <h3>Can I control what my family members see?</h3>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Absolutely. You have granular control over what each care network member receives. You can set different family members to receive only basic wellness summaries, while giving healthcare providers access to detailed health pattern analysis. These permissions can be changed at any time, and you always retain full control over your data.</p>
+                </div>
+            </div>
+
+            <div class="faq-item" id="private-conversations">
+                <div class="faq-question">
+                    <h3>What about private conversations with my spouse or therapist?</h3>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>You can configure privacy zones, specific times, or trigger words that automatically exclude certain conversations from processing or sharing. Additionally, you can designate specific relationships (like spouse or therapist) where conversations are kept completely private or shared only with medical professionals if relevant to your care.</p>
+                </div>
+            </div>
+
+            <div class="faq-item" id="turn-off">
+                <div class="faq-question">
+                    <h3>Can I turn off recording completely?</h3>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Yes, you can pause recording at any time using the device button, mobile app, or voice command. You can also set automatic schedules for when recording should be paused (like during certain hours or activities) and create permanent privacy zones where recording never occurs.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Return to FAQ Button -->
+        <div class="privacy-banner">
+            <a href="faq.html" class="privacy-btn">← Return to FAQs page</a>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="#">X ↗</a>
+                <a href="#">LinkedIn ↗</a>
+                <a href="#">Instagram ↗</a>
+                <a href="#">Legal ↗</a>
+                <a href="privacy.html" class="footer-brand">Privacy Policy ↗</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <span>©2025 Idiom</span>
+            <span class="footer-tagline">Rational Optimism</span>
+        </div>
+    </footer>
+
+    <script>
+        const cursorDot = document.getElementById('cursorDot');
+        
+        // Cursor tracking
+        document.addEventListener('mousemove', (e) => {
+            cursorDot.style.left = e.clientX + 'px';
+            cursorDot.style.top = e.clientY + 'px';
+        });
+
+        document.addEventListener('mouseleave', () => {
+            cursorDot.style.opacity = '0';
+        });
+
+        document.addEventListener('mouseenter', () => {
+            cursorDot.style.opacity = '1';
+        });
+
+        // Add hover effects for interactive elements
+        const interactiveElements = document.querySelectorAll('a, button, [role="button"], .faq-question');
+        
+        interactiveElements.forEach(element => {
+            element.addEventListener('mouseenter', () => {
+                cursorDot.style.transform = 'translate(-50%, -50%) scale(1.5)';
+            });
+            
+            element.addEventListener('mouseleave', () => {
+                cursorDot.style.transform = 'translate(-50%, -50%) scale(1)';
+            });
+        });
+
+        // FAQ Accordion functionality
+        const faqItems = document.querySelectorAll('.faq-item');
+        
+        faqItems.forEach(item => {
+            const question = item.querySelector('.faq-question');
+            
+            question.addEventListener('click', () => {
+                const isActive = item.classList.contains('active');
+                
+                // Close all other items
+                faqItems.forEach(otherItem => {
+                    otherItem.classList.remove('active');
+                });
+                
+                // Toggle current item
+                if (!isActive) {
+                    item.classList.add('active');
+                }
+            });
+        });
+
+        // Check for deep link and open specific question
+        window.addEventListener('load', () => {
+            const hash = window.location.hash.substring(1);
+            if (hash) {
+                const targetItem = document.getElementById(hash);
+                if (targetItem) {
+                    targetItem.classList.add('active');
+                    targetItem.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                }
+            }
+        });
+    </script>
+</body>
+</html>
